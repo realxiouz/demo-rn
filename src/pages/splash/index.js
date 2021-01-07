@@ -32,7 +32,7 @@ class SplashPage extends React.Component {
   render() {
     return (
       <View style={{flex: 1}}>
-        <StatusBar hidden={!0} backgroundColor='transparent' translucent={true} />
+        <StatusBar hidden={!!0} backgroundColor='transparent' translucent={true} />
         <Image style={this.styles.bg} source={{uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201812%2F17%2F20181217224401_twtgy.jpeg&refer=http%3A%2F%2Fb-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1612600688&t=329b3381a7db03be9a70d527118339ae'}} />
         <Text style={this.styles.btn} onPress= {this.goHome}>{this.state.txt}</Text>
       </View>
