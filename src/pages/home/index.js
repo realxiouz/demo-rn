@@ -1,6 +1,6 @@
 import React from 'react'
-import { View, Text } from "react-native"
-import http from "../../utils/request";
+import { View, Text, Alert } from "react-native"
+import http, { httpGet } from "../../utils/request";
 
 class HomePage extends React.Component {
 
@@ -15,8 +15,25 @@ class HomePage extends React.Component {
   componentDidMount() {
     let { navigation } = this.props
     navigation.addListener('focus', _ => {
-      alert('show?')
-      http.get('http://www.baidu.com')
+      Alert.alert(
+        '温馨提示',
+        'focus',
+        [
+          {
+            text: '取消',
+            onPress: _ => console.log('1')
+          },
+          {
+            text: '确定',
+            onPress: _ => {
+              httpGet('/v1/home/banner')
+                .then(r => {
+                  console.log(r)
+                })
+            }
+          }
+        ]
+      )
     })
   }
 
